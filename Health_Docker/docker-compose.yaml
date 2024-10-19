@@ -46,7 +46,7 @@ services:
       - ELASTICSEARCH_HOSTS=["http://elasticsearch_container_health:9200"]
       - ELASTICSEARCH_USERNAME=kibana_system
       - ELASTICSEARCH_PASSWORD=kibana
-      - ELASTICSEARCH_SERVICEACCOUNT_TOKEN=AAEAAWVsYXN0aWMva2liYW5hL2NvZmZlZS1raWJhbmE6Qm9fVnl2d29Ud1dKN3hMdlhVa1g0UQ
+      - ELASTICSEARCH_SERVICEACCOUNT_TOKEN=AAEAAWVsYXN0aWMva2liYW5hL2pvYmJlci1raWJhbmE6Vl9JaHlwb3NTVEs4R3pmcWNZZHoxUQ
       - XPACK_FLEET_AGENTS_ELASTICSEARCH_HOSTS=["http://elasticsearch_container_health:9200"]
     ports:
       - 5601:5601

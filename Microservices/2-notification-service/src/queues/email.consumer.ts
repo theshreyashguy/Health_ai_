@@ -22,7 +22,7 @@ async function consumeAuthEmailMessages(channel: Channel): Promise<void> {
       const { receiverEmail, username, verifyLink, resetLink, template } = JSON.parse(msg!.content.toString());
       const locals: IEmailLocals = {
         appLink: `${config.CLIENT_URL}`,
-        appIcon: 'https://i.ibb.co/Kyp2m0t/cover.png',
+        appIcon: 'https://res.cloudinary.com/dhemctx7c/image/upload/v1729332893/logo_fwavvt.png',
         username,
         verifyLink,
         resetLink
