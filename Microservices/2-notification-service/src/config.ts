@@ -23,6 +23,9 @@ class Config {
   public SENDER_EMAIL_PASSWORD: string | undefined;
   public RABBITMQ_ENDPOINT: string | undefined;
   public ELASTIC_SEARCH_URL: string | undefined;
+  public CLIENT_ID: string|undefined;
+  public CLIENT_SECRET: string| undefined;
+  public REFRESH_TOKEN: string| undefined;
 
   constructor() {
     this.NODE_ENV = process.env.NODE_ENV || '';
@@ -31,6 +34,9 @@ class Config {
     this.SENDER_EMAIL_PASSWORD = process.env.SENDER_EMAIL_PASSWORD || '';
     this.RABBITMQ_ENDPOINT = process.env.RABBITMQ_ENDPOINT || '';
     this.ELASTIC_SEARCH_URL = process.env.ELASTIC_SEARCH_URL || '';
+    this.CLIENT_ID = process.env.CLIENT_ID || '';
+    this.CLIENT_SECRET = process.env.CLIENT_SECRET || '';
+    this.REFRESH_TOKEN = process.env.REFRESH_TOKEN || '';
   }
 }
 
