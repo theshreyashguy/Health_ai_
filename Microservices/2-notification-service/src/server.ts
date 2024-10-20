@@ -11,34 +11,6 @@ import { createConnection } from '@notifications/queues/connection';
 import { Channel } from 'amqplib';
 import { consumeAuthEmailMessages, consumeOrderEmailMessages } from '@notifications/queues/email.consumer';
 
-async function sendTestEmailMessage() {
-  try {
-    const channel: Channel = await createConnection() as Channel;
-
-    const exchangeName = 'jobber-email-notification';
-    const routingKey = 'auth-email';
-
-    await channel.assertExchange(exchangeName, 'direct');
-
-    const testMessage = {
-      receiverEmail: '21241@iiitu.ac.in',
-      username: 'testuser',
-      verifyLink: 'https://example.com/verify',
-      resetLink: 'https://example.com/reset',
-      template: 'verifyEmail', 
-    };
-
-    channel.publish(
-      exchangeName,
-      routingKey,
-      Buffer.from(JSON.stringify(testMessage))
-    );
-
-    console.log('Test email message sent to RabbitMQ');
-  } catch (error) {
-    console.error('Error sending test email message:', error);
-  }
-}
 
 
 const SERVER_PORT = 4001;
@@ -55,7 +27,6 @@ async function startQueues(): Promise<void> {
   const emailChannel: Channel = await createConnection() as Channel;
   await consumeAuthEmailMessages(emailChannel);
   await consumeOrderEmailMessages(emailChannel);
-  sendTestEmailMessage();
 }
 
 function startElasticSearch(): void {
