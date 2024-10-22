@@ -15,6 +15,11 @@ interface CoffeeUserModelInstanceMethods extends Model {
 type CoffeeUserCreationAttributes = Optional<IAuthDocument, 'id' | 'createdAt' >;
 
 const AuthModel: ModelDefined<IAuthDocument, CoffeeUserCreationAttributes> & CoffeeUserModelInstanceMethods = sequelize.define('coffee_users', {
+  id: {
+    type: DataTypes.INTEGER,
+    autoIncrement: true,  // Auto increment for primary key
+    primaryKey: true,
+  },
   username: {
     type: DataTypes.STRING,
     allowNull: false

@@ -17,7 +17,7 @@ const log: Logger = winstonLogger(`${config.ELASTIC_SEARCH_URL}`, 'authService',
 //   type?: string;
 // }
 
-export async function createAuthUser(data: IAuthDocument, token: string): Promise<IAuthDocument | undefined> {
+export async function createAuthUser(data: IAuthDocument): Promise<IAuthDocument | undefined> {
   try {
     const result: Model = await AuthModel.create(data);
     // const messageDetails: IAuthBuyerMessageDetails = {
@@ -32,8 +32,7 @@ export async function createAuthUser(data: IAuthDocument, token: string): Promis
       username: result.dataValues.username!,
       verifyLink: '',
       resetLink: 'https://www.google.com/',
-      template : 'verifyEmail',
-      token:token
+      template : 'verifyEmail'
     };
     await publishDirectMessage(
       authChannel,

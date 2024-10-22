@@ -29,7 +29,7 @@ export async function create(req: Request, res: Response): Promise<void> {
       phone,
       password,
     } as IAuthDocument;
-    await createAuthUser(authData,'');
+    await createAuthUser(authData);
   }
   res.status(StatusCodes.OK).json({ message: 'Seed users created successfully.' });
 }

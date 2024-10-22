@@ -1,6 +1,7 @@
 import { CurrentUser } from '@gateway/controllers/auth/current-user';
 import { AuthSeed } from '@gateway/controllers/auth/seed';
 import { SignIn } from '@gateway/controllers/auth/signin';
+import { SignOut } from '@gateway/controllers/auth/signout';
 import { SignUp } from '@gateway/controllers/auth/signup';
 import express, { Router } from 'express';
 
@@ -12,9 +13,10 @@ class AuthRoutes {
   }
 
   public routes(): Router {
-    this.router.get('/auth/currentuser',CurrentUser.prototype.read);
+    this.router.get('/auth/currentuser/:id',CurrentUser.prototype.read);
     this.router.post('/auth/signup', SignUp.prototype.create);
     this.router.post('/auth/signin', SignIn.prototype.read);
+    this.router.post('/auth/signout', SignOut.prototype.remove);
     this.router.put('/auth/seed/:count', AuthSeed.prototype.create);
     return this.router;
   }
